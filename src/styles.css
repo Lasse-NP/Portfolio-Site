@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
     width: 100%;
     height: 100vh;
     background-image: radial-gradient(rgb(58, 169, 106) 20%, #11744e);
@@ -33,7 +33,7 @@
 
 .image-window {
     background-color: #bedbbf;
-    width: clamp(200px, 30vw, 600px);
+    width: clamp(200px, 30vw, 500px);
     aspect-ratio: 1;
     border-radius: 50%;
     border: 10px solid #bedbbf;
@@ -56,7 +56,7 @@
 }
 
 .name {
-    font-size: clamp(1.75rem, 4vw, 5rem);
+    font-size: clamp(1.75rem, 4vw, 4.5rem);
     font-family: 'Shuriken', sans-serif;
     text-shadow: 1px 1px 2px #06292f;
     color: #bedbbf;
@@ -70,7 +70,7 @@
 }
 
 .link-row mat-icon {
-  font-size: clamp(4rem, 5vw, 8rem);
+  font-size: clamp(4rem, 5vw, 7rem);
   color: #bedbbf;
   width: 100%;
   height: 100%;
