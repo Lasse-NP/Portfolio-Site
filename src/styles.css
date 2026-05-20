@@ -20,7 +20,7 @@
     padding-bottom: 100px;
     width: 100%;
     height: 100vh;
-    background-image: radial-gradient(rgb(58, 169, 106) 20%, #11744e);
+    background-image: radial-gradient(rgb(49, 131, 85) 20%, #083423);
 }
 
 .body {
@@ -32,11 +32,11 @@
 }
 
 .image-window {
-    background-color: #bedbbf;
-    width: clamp(200px, 30vw, 500px);
+    background-color: #ffffff;
+    width: clamp(180px, 25vw, 460px);
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 10px solid #bedbbf;
+    border: 10px solid #ffffff;
     box-shadow: 0px 3px 15px #06292f;
     overflow: hidden;
     will-change: transform;
@@ -58,41 +58,52 @@
 .name {
     font-size: clamp(1.75rem, 4vw, 4.5rem);
     font-family: 'Shuriken', sans-serif;
-    text-shadow: 1px 1px 2px #06292f;
-    color: #bedbbf;
+    color: #ffffff;
 }
 
 .link-row {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: clamp(10px, 3vw, 80px);
 }
 
-.link-row mat-icon {
-  font-size: clamp(4rem, 5vw, 7rem);
-  color: #bedbbf;
-  width: 100%;
-  height: 100%;
-  text-shadow: 1px 1px 5px #06292f;
+.link-row * {
+  color: #ffffff;
   transition: color 0.15s linear, text-shadow 0.3s linear, transform 0.3s linear;
 }
 
-.link-row mat-icon:hover {
-    color: white;
+.mail {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
 }
 
-.git mat-icon.rotated {
-  transform: rotate(180deg) scale(1.2);
-  text-shadow: -3px -3px 5px #06292f;
+[data-tooltip] {
+  position: relative;
 }
 
-.lkin mat-icon.rotated {
-  transform: rotate(90deg) scale(1.2);
-  text-shadow: 3px -3px 5px #06292f;
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 1);
+  color: #000;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.mail mat-icon.lifted {
-  transform: scale(1.2);
-  text-shadow: 3px 3px 5px #06292f;
+[data-tooltip]:hover::after {
+  opacity: 1;
 }

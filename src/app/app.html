@@ -1,4 +1,4 @@
-<app-navbar />
+<!-- <app-navbar /> -->
 <main class="background">
   <div class="body">
     <div class="image-window">
@@ -9,29 +9,18 @@
         Lasse N. Poulsen
       </h1>
       <div class="link-row">
-        <a class="git" href="https://github.com/Lasse-NP" target="_blank" rel="noopener noreferrer">
-          <mat-icon [class.rotated]="gitRotated" 
-            (mouseenter)="gitRotated = true" 
-            (mouseleave)="gitRotated = false">
-            commit
-          </mat-icon>
+        <a class="git" href="https://github.com/Lasse-NP" target="_blank" data-tooltip="Go to GitHub" rel="noopener noreferrer">
+          <i-bolt size="100" />
         </a>
-        <a class="lkin" href="https://www.linkedin.com/in/lasse-n-poulsen/" target="_blank" rel="noopener noreferrer">
-          <mat-icon [class.rotated]="linkRotated" 
-            (mouseenter)="linkRotated = true" 
-            (mouseleave)="linkRotated = false">
-            link
-          </mat-icon>
+        <a class="lkin" href="https://www.linkedin.com/in/lasse-n-poulsen/" target="_blank" data-tooltip="Go to LinkedIn" rel="noopener noreferrer">
+          <i-briefcase-business size="100" />
         </a>
-        <a class="mail" href="mailto:lasse@bjerg.dev">
-          <mat-icon [class.lifted]="mailLifted" 
-            (mouseenter)="onMailEnter()" 
-            (mouseleave)="onMailLeave()">
-            {{ mailIcon }}
-          </mat-icon>
-        </a>
+        <button (click)="copyMessage('lasse@bjerg.dev')" value="email" class="mail" data-tooltip="Copy E-Mail">
+          <i-mail-check size="100" />
+        </button>
       </div>
     </div>
   </div>
 </main>
+<ng-toast />
 <router-outlet />

@@ -1,30 +1,23 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { Navbar } from './navbar/navbar';
-
+import { BoltIcon, MailCheckIcon, BriefcaseBusinessIcon } from 'ng-animated-icons';
+import { NgToastComponent, NgToastService } from 'ng-angular-popup';
+// import { Navbar } from './navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgOptimizedImage, MatIconModule, Navbar],
+  imports: [RouterOutlet, NgToastComponent, NgOptimizedImage, BoltIcon, MailCheckIcon, BriefcaseBusinessIcon],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('Portfolio-Site');
-  gitRotated = false;
-  linkRotated = false;
-  mailLifted = false;
-  mailIcon = 'mail';
+  private toast = inject(NgToastService);
 
-  onMailEnter() {
-    this.mailLifted = true;
-    this.mailIcon = 'drafts';
-  }
-
-  onMailLeave() {
-    this.mailLifted = false;
-    this.mailIcon = 'mail';
+  copyMessage(val: string){
+    navigator.clipboard.writeText(val).then(() => {
+      this.toast.success('Email copied to clipboard!', 'Copied!', 2000);
+    });
   }
 }
